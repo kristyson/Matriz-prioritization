@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kpi">
+
+
+    <!-- Título -->
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="KPI"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:text="Próximo"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <!-- ScrollView para a área rolável -->
+    <ScrollView
+        android:layout_width="350dp"
+        android:layout_height="450dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnProximo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/opcao1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asset e Equipment Efficiency" />
+
+            <CheckBox
+                android:id="@+id/opcao2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Workforce Efriency" />
+
+            <CheckBox
+                android:id="@+id/opcao3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Utaities Effxciency" />
+
+            <CheckBox
+                android:id="@+id/opcao4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Materials Efficiency" />
+
+            <CheckBox
+                android:id="@+id/opcao5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Process Quality" />
+
+            <CheckBox
+                android:id="@+id/opcao6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Quality" />
+
+            <CheckBox
+                android:id="@+id/opcao7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Safety" />
+
+            <CheckBox
+                android:id="@+id/opcao8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Security" />
+
+            <CheckBox
+                android:id="@+id/opcao9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Planning e Scheduling Effectiveness" />
+
+            <CheckBox
+                android:id="@+id/opcao10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asset e Equipment Efficiency" />
+
+            <CheckBox
+                android:id="@+id/opcao11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Production Flexibility" />
+
+            <CheckBox
+                android:id="@+id/opcao12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Workforce Flexibility" />
+
+            <CheckBox
+                android:id="@+id/opcao13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time to Market" />
+
+            <CheckBox
+                android:id="@+id/opcao14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time to Delivery" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
