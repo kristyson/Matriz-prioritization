@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".forms">
 
-    <!-- ScrollView para a área rolável -->
-
     <!-- Parte Inferior Fixa -->
     <!-- Por exemplo, aqui você pode adicionar botões de ação ou outras visualizações fixas -->
 
@@ -24,7 +22,7 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnProximo"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:text="Proximo"
@@ -40,7 +38,7 @@
         android:layout_width="330dp"
         android:layout_height="490dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnProximo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -113,7 +111,7 @@ de automação." />
 
             </RadioGroup>
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 2 -->
             <TextView
                 android:id="@+id/question2"
                 android:layout_width="match_parent"
@@ -177,13 +175,16 @@ ativamente." />
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 3 -->
             <TextView
                 android:id="@+id/question3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="3. Ciclo de vida Integrado do Produto: é a integração de pessoas, processos e sistemas ao
+longo de todo o ciclo de vida do produto, abrangendo as etapas de ideação, design,
+desenvolvimento, engenharia, produção, uso pelo cliente, serviço e descarte, qual seu estado
+atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer3Group"
@@ -197,53 +198,60 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Ciclo de vida do produto e processos da empresa não são explicitamente definidos." />
 
                 <RadioButton
                     android:id="@+id/answer3_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Ciclo de vida do produto e processos da empresa säo definidos e executado por humanos, com o suporte de
+ferramentas analögicas." />
 
                 <RadioButton
                     android:id="@+id/answer3_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Ciclo de vida do produto e processos da empresa säo concluidos por humanos com suporte de ferramentas
+digitais." />
 
                 <RadioButton
                     android:id="@+id/answer3_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Ciclo de vida do produto e processos da empresa estäo integrados de forma segura entre parceiros de neg6cios
+e clientes ao longo da cadeia de valor." />
 
                 <RadioButton
                     android:id="@+id/answer3_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Ciclo de vida do produto e processos da empresa integrados: processos e sistemas säo automatizados, com
+intervenqäo humana limitada." />
 
                 <RadioButton
                     android:id="@+id/answer3_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Ciclo de vida do produto e processos da empresa automatizados. Processos e sistemas da empresa analisam e
+reagem aos dados ativamente." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 4 -->
             <TextView
                 android:id="@+id/question4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="4. Automaqäo do chäo de fabrica: é a aplicaqäo de tecnologia para monitorar, controlar e
+executar a produqäo e entrega de produtos e serviqos, dentro do local onde a produqäo e a
+gestäo de mercadorias é realizada, qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer4Group"
@@ -257,52 +265,61 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Produqäo repetitiva e processos de suporte da empresa näo säo automatizados." />
 
                 <RadioButton
                     android:id="@+id/answer4_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Producäo repetitiva dos processos da empresa säo parcialmente automatizados, com significativa intervenqäo
+humana. Suporte repetitivo de processos näo säo automatizados." />
 
                 <RadioButton
                     android:id="@+id/answer4_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Producäo repetitiva dos processos säo automatizadas, com minima intervenqäo humana. Processos repetitivos
+de suporte näo säo automatizados." />
 
                 <RadioButton
                     android:id="@+id/answer4_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Produ$o repetitiva de processos da empresa säo totalmente automatizado, sem interven$o humana.
+Processos repetitivos de suporte säo parcialmente automatizados, com intervenqäo humana limitada." />
 
                 <RadioButton
                     android:id="@+id/answer4_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Produqäo automatizada de processos da empresa säo reconfiguråveis através automaqäo plug-and-play.
+Suporte repetitivo de processos säo parcialmente automatizados, com limitada intervenqäo humana." />
 
                 <RadioButton
                     android:id="@+id/answer4_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Produqäo flexivel e processos de suporte da empresa säo convergentes com a empesa e automatizados
+facilitando a integraqäo das plataformas para formaqäo de redes altamente autönomas." />
 
             </RadioGroup>
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 5 -->
             <TextView
                 android:id="@+id/question5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="5. Automaqäo Empresarial é a aplicaqäo de tecnologia para monitorar, controlar e executar
+processos, dentro do local onde é realizado o trabalho administrativo. Esses
+processos incluem, mas näo estäo limitados a, vendas e marketing, planejamento de
+demanda, compras e recursos humanos, gerenciamento e planejamento de recursos, qual
+seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer5Group"
@@ -316,52 +333,55 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Osprocessosempresariaisnäosäoautomatizados." />
 
                 <RadioButton
                     android:id="@+id/answer5_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Processosempresariaissäoparcialmenteautomatizados, comintervengäohumanasignificativa." />
 
                 <RadioButton
                     android:id="@+id/answer5_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Osprocessosempresariaissãoautomatizados, commínimaintervençãohumana." />
 
                 <RadioButton
                     android:id="@+id/answer5_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Osprocessosempresariaissäototalmenteautomatizados, semintervengäohumana." />
 
                 <RadioButton
                     android:id="@+id/answer5_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Empresaautomatizadacomprocessosadaptåveis." />
 
                 <RadioButton
                     android:id="@+id/answer5_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Empresaflexfvel, osprocessossäoconvergentescomchäodefåbricaeasinstalaqöessäoautomatizadascc" />
 
             </RadioGroup>
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 6 -->
             <TextView
                 android:id="@+id/question6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="6. Automagäo de suprimentos é a aplicaqäo de tecnologia para monitorar, controlar e executar
+processos dentro do prédio fisico e/ou instalaqöes onde estå localizada a årea de produqäo.
+Esses processos incluem, mas näo estäo limitados, ao gerenciamento de HVAC, chiller,
+seguranqa e sistemas de iluminaqäo. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer6Group"
@@ -375,53 +395,56 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Os processos de instalaqäo näo säo automatizados." />
 
                 <RadioButton
                     android:id="@+id/answer6_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Processos de instalaqäo säo parcialmente automatizados, com intervenqäo humana significativa." />
 
                 <RadioButton
                     android:id="@+id/answer6_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os processos de instalaqäo säo automatizados, com minima intervenqäo humana." />
 
                 <RadioButton
                     android:id="@+id/answer6_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Os processos de instalaqäo säo totalmente automatizados, sem intervenqäo humana." />
 
                 <RadioButton
                     android:id="@+id/answer6_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Empresa automatizada com processos de instalaqäo adaptåveis." />
 
                 <RadioButton
                     android:id="@+id/answer6_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Empresa flexivel, os processos de instalaqäo säo convergentes com chäo de fåbrica e as instalaqöes säo
+automatizadas com plataformas para formar redes altamente autönomas." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 7 -->
             <TextView
                 android:id="@+id/question7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="7. A conectividade do chäo de fåbrica é a interconexäo de equipamentos, måquinas e sistemas
+baseados em computador para permitir a comunicaqäo e a troca continua de dados dentro
+do local onde o a produqäo e gestäo de mercadorias é realizada. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer7Group"
@@ -435,53 +458,57 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Ativos de produqäo e os sistemas näo säo conectado." />
 
                 <RadioButton
                     android:id="@+id/answer7_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Ativos de produqäo e os sistemas estäo conectados via comunicaqäo de mültipla tecnologias e protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer7_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Produqäo conectada de ativos e sistemas säo interoperåveis através de comunicaqäo de mültiplas tecnologias e
+protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer7_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Ativos de producäo säo interoperåveis e os sistemas säo seguros." />
 
                 <RadioButton
                     android:id="@+id/answer7_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Produqäo interoperåvel, ativos e sistemas säo seguros e capazes de realizar comunicaqäo em tempo real." />
 
                 <RadioButton
                     android:id="@+id/answer7_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Producäo interoperåvel, ativos e sistemas säo seguros e capazes de realizar comunicaqäo em tempo real e
+escalåvel." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 8 -->
             <TextView
                 android:id="@+id/question8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="8. Conectividade Empresarial é a interconexäo de equipamentos, måquinas e sistema de
+computadores, para permitir a comunicaqäo e a troca continua de dados, dentro do local
+onde o trabalho administrativo é realizado. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer8Group"
@@ -495,53 +522,57 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Os sistemas de Tl da empresa näo säo conectados." />
 
                 <RadioButton
                     android:id="@+id/answer8_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Os sistemas de Tl da empresa estäo conectados via comunicaqäo de mültipla tecnologias e protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer8_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os sistemas de TI da empresa säo interoperåveis através de comunicaqäo de mültiplas tecnologias e protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer8_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Os sistemas de Tl da empresa são interoperáveis e os sistemas são seguros." />
 
                 <RadioButton
                     android:id="@+id/answer8_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Produção interoperável, os sistemas de Tl da empresa são seguros e capazes de realizar comunicação em tempo
+real." />
 
                 <RadioButton
                     android:id="@+id/answer8_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Produção interoperável, os sistemas de TI da empresa são seguros e capazes de realizar comunicação em tempo
+real e escalável." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 9 -->
             <TextView
                 android:id="@+id/question9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="9. Conectividade de suprimentos é a interconexão de equipamentos, máquinas e sistemas
+baseados em computador, para permitir a comunicação e a troca contínua de dados, dentro
+do edifício físico e/ou terreno onde está localizada a área de produção. qual seu estado atual" />
 
             <RadioGroup
                 android:id="@+id/answer9Group"
@@ -555,53 +586,58 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Instalações e sistemas não são conectados." />
 
                 <RadioButton
                     android:id="@+id/answer9_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Instalações e sistemas da empresa estão conectados via comunicação de múltipla tecnologias e protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer9_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Instalações e sistemas da empresa são interoperáveis através de comunicação de múltiplas tecnologias e
+protocolos." />
 
                 <RadioButton
                     android:id="@+id/answer9_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Instalações e sistemas da empresa são interoperáveis e os sistemas são seguros." />
 
                 <RadioButton
                     android:id="@+id/answer9_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Produção interoperável, as instalações e sistemas da empresa são seguros e capazes de realizar comunicação
+em tempo real." />
 
                 <RadioButton
                     android:id="@+id/answer9_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Produção interoperável, instalações e sistemas da empresa são seguros e capazes de realizar comunicação em
+tempo real e escalável." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 10 -->
             <TextView
                 android:id="@+id/question10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="10. Inteligência do chão de fabrica é o processamento e análise de dados para otimizar os
+processos existentes e criar novas aplicações, produtos e serviços, dentro do local onde a
+produção e a gestão de mercadorias é realizada. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer10Group"
@@ -615,53 +651,60 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação não estão em uso." />
 
                 <RadioButton
                     android:id="@+id/answer10_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação executam tarefas pré-programadas e
+processos." />
 
                 <RadioButton
                     android:id="@+id/answer10_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar desvios." />
 
                 <RadioButton
                     android:id="@+id/answer10_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar desvios e diagnosticar possíveis causas." />
 
                 <RadioButton
                     android:id="@+id/answer10_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar desvios e diagnosticar possíveis causas." />
 
                 <RadioButton
                     android:id="@+id/answer10_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar problemas e prever estados futuros dos ativos e sistemas e executar autonomamente decisões de
+adaptação às mudanças." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 11 -->
             <TextView
                 android:id="@+id/question11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="11. Inteligência empresarial é o processamento e análise de dados para otimizar processos
+administrativos existentes e criar novas aplicações, produtos e serviços. qual seu estado atual" />
 
             <RadioGroup
                 android:id="@+id/answer11Group"
@@ -675,53 +718,59 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Os sistemas operacionais não estão em uso." />
 
                 <RadioButton
                     android:id="@+id/answer11_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Os sistemas de Tecnologia da Informação executam tarefas pré-programadas e processos." />
 
                 <RadioButton
                     android:id="@+id/answer11_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os sistemas de Tecnologia da Informação informatizados são capazes de identificar desvios." />
 
                 <RadioButton
                     android:id="@+id/answer11_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Os sistemas de Tecnologia da Informação informatizados estão habilitados para identificar desvios e
+diagnosticar possíveis causas." />
 
                 <RadioButton
                     android:id="@+id/answer11_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar problemas e prever estados futuros dos ativos e sistemas." />
 
                 <RadioButton
                     android:id="@+id/answer11_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar problemas e prever estados futuros dos ativos e sistemas e executar autonomamente decisões de
+adaptação às mudanças." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 12 -->
             <TextView
                 android:id="@+id/question12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="12. Inteligência de suprimento é o processamento e análise de dados para otimizar processos
+existentes e criar novas aplicações, produtos e serviços, dentro do edifício físico e das
+instalações onde a área de produção está localizada. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer12Group"
@@ -735,53 +784,61 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação não estão em uso." />
 
                 <RadioButton
                     android:id="@+id/answer12_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação executam tarefas pré-programadas e
+processos." />
 
                 <RadioButton
                     android:id="@+id/answer12_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar desvios." />
 
                 <RadioButton
                     android:id="@+id/answer12_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar desvios e diagnosticar possíveis causas." />
 
                 <RadioButton
                     android:id="@+id/answer12_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar problemas e prever estados futuros dos ativos e sistemas." />
 
                 <RadioButton
                     android:id="@+id/answer12_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Os sistemas de Tecnologia operacional e Tecnologia da Informação informatizados estão habilitados para
+identificar problemas e prever estados futuros dos ativos e sistemas e executar autonomamente decisões de
+adaptação às mudanças." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 13 -->
             <TextView
                 android:id="@+id/question13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="13. Aprendizagem e Desenvolvimento da Força de Trabalho ('LeD') é um sistema de processos e
+            programas que visa desenvolver as capacidades, habilidades e competências da força de
+            trabalho para alcançar excelência organizacional. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer13Group"
@@ -795,53 +852,61 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Orientação informal e aprendizagem são os modos predominantes da força de trabalho de aprendizagem e
+desenvolvimento." />
 
                 <RadioButton
                     android:id="@+id/answer13_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Programa de treinamento formalmente projetado para aquisição de habilidades é o modo predominante da
+força de trabalho de aprendizagem e desenvolvimento." />
 
                 <RadioButton
                     android:id="@+id/answer13_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Programa de aprendizagem e desenvolvimento é projetado para funcionar de forma contínua para permitir o
+constante aprimoramento elou expansão do conjunto de habilidades dos funcionários." />
 
                 <RadioButton
                     android:id="@+id/answer13_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Programa de aprendizagem e desenvolvimento contínuo é formalmente alinhado com as necessidades do
+negócio e com os recursos humanos." />
 
                 <RadioButton
                     android:id="@+id/answer13_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Programa de aprendizagem e desenvolvimento contínuo são ativamente desenvolvidos, atualizados e
+customizados com base nos insights fornecidos pelas partes interessadas através de ciclos de feedback." />
 
                 <RadioButton
                     android:id="@+id/answer13_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Esforços ativos são praticados para identificar e incorporar novas práticas inovadoras de aprendizagem,
+desenvolvimento e treinamentos para o futuro." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 14 -->
             <TextView
                 android:id="@+id/question14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="14. Aprendizagem e Desenvolvimento da Força de Trabalho (LED) é um sistema de processos e
+            programas que visa desenvolver as capacidades, habilidades e competências da força de
+            trabalho para alcançar excelência organizacional. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer14Group"
@@ -855,53 +920,59 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="A gestão não está familiarizada com as mais recentes tendências e tecnologicas." />
 
                 <RadioButton
                     android:id="@+id/answer14_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="A gestão tem consciênca das tendências mais recentes através anúncios e canais hoc." />
 
                 <RadioButton
                     android:id="@+id/answer14_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="A gestão está bem informada, através de informações formais, canais e plataformas, das tendências e
+tecnologias mais recentes." />
 
                 <RadioButton
                     android:id="@+id/answer14_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="A gestão é dependente de parceiros externos para desenvolver iniciativas que alavancam as tendências e
+tecnologias mais recentes para melhorar pelo menos uma área da organização" />
 
                 <RadioButton
                     android:id="@+id/answer14_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="A gestão é capaz de, com relativa independência,desenvolver iniciativas que aproveitem as últimastendências e
+tecnologia para melhorar mais de um área da organização" />
 
                 <RadioButton
                     android:id="@+id/answer14_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="A gestão é capaz de adaptar, de forma independente, sua organização para transformação às tendências e
+mudança de tecnologias." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 15 -->
             <TextView
                 android:id="@+id/question15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="15. A Colaboração Inter e Intra-Empresa é o processo de trabalho conjunto, através de equipes
+multifuncionais e com parceiros externos, para alcançar uma visão e um propósito
+compartilhados. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer15Group"
@@ -915,53 +986,60 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Comunicação e compartilhamento de informações entre equipes acontece em uma base informal." />
 
                 <RadioButton
                     android:id="@+id/answer15_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Canais formais são estabelecidos para comunicação e compartilhamento de informações entre equipes" />
 
                 <RadioButton
                     android:id="@+id/answer15_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Os canais formais são estabelecido para permitir que as equipes trabalhem juntas em tarefas discretas/únicas e
+projetos." />
 
                 <RadioButton
                     android:id="@+id/answer15_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="As equipes estão capacitadas pela organização para fazer ajustes que facilitará a cooperação em tarefas
+discretas e projetos" />
 
                 <RadioButton
                     android:id="@+id/answer15_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="As equipes são capacitadas pela a organização para compartilhar recursos em tarefas discretas, de longo prazo
+e projetos." />
 
                 <RadioButton
                     android:id="@+id/answer15_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Os canais formais são estabelecidos para permitir que equipes trabalhem dinamicamente em projetos
+multifuncionais com objetivos compartilhados, recursos e KPIs." />
 
             </RadioGroup>
 
 
-            <!-- Pergunta 1 -->
+            <!-- Pergunta 16 -->
             <TextView
                 android:id="@+id/question16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pergunta 1" />
+                android:text="16. Estratégia e Governança é o desenho e execução de um plano de ação para alcançar um
+conjunto de metas de longo prazo. Inclui a identificação de prioridades, a formulação de um
+roteiro e o desenvolvimento de um sistema de regras, práticas e processos para traduzir uma
+visão em valor de negócio. qual seu estado atual ?" />
 
             <RadioGroup
                 android:id="@+id/answer16Group"
@@ -975,42 +1053,47 @@ ativamente." />
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="0" />
+                    android:text="Transformação para a fábrica/Planta do Futuro não está presente em nenhuma parte da estratégia da
+organização." />
 
                 <RadioButton
                     android:id="@+id/answer16_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="1" />
+                    android:text="Transformação em direção a Fábrica/Planta do Futuro foi formalmente identificado como uma estratégia a nível
+corporativo de negócio." />
 
                 <RadioButton
                     android:id="@+id/answer16_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="2" />
+                    android:text="Transformação em direção a Fábrica/Planta do Futuro está sendo desenvolvido ou foi desenvolvido por uma
+equipe dedicada" />
 
                 <RadioButton
                     android:id="@+id/answer16_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="3" />
+                    android:text="Transformação em direção a Fábrica/Planta do Futuro foi formalmente implementada em pelo menos uma área
+funcional." />
 
                 <RadioButton
                     android:id="@+id/answer16_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="4" />
+                    android:text="Transformação em direção a Fábrica/Planta do Futuro está sendo expandida para incluir mais do que uma área
+funcional." />
 
                 <RadioButton
                     android:id="@+id/answer16_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="5" />
+                    android:text="Transformação em direção a Fábrica/PIanta do Futuro é atualizada constantemente de forma dinâmica." />
 
             </RadioGroup>
 
