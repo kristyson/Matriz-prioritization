@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Matrz_priori"
         tools:targetApi="31">
         <activity
+            android:name=".report"
+            android:exported="false" />
+        <activity
             android:name=".setor"
             android:exported="false" />
         <activity

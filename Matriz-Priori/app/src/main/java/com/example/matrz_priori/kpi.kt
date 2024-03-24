@@ -14,6 +14,7 @@ class kpi : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_kpi)
 
+
         val btnProximo: Button = findViewById(R.id.btnProximo)
 
         btnProximo.setOnClickListener{
