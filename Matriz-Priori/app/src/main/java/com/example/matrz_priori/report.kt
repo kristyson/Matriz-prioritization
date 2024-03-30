@@ -3,6 +3,7 @@ package com.example.matrz_priori
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.widget.Button
 import android.widget.TableLayout
@@ -20,7 +21,7 @@ class report : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_report)
 
-
+        val impactValue  = horizontal.impactValue
         val tableLayout: TableLayout = findViewById(R.id.tableLayout)
 
         // Array de strings para os textos da segunda coluna
@@ -86,6 +87,8 @@ class report : AppCompatActivity() {
                     }
                 } else if (j == 2) {
                     textView.text = texts[i - 1]
+                } else if (j == 4) {
+                    textView.text = String.format("%.2f", impactValue[i - 1])
                 } else {
                     textView.text = "$i:$j"
                 }
@@ -111,6 +114,8 @@ class report : AppCompatActivity() {
             }
             tableLayout.addView(tableRow)
         }
+
+
 
         val btnProximo: Button = findViewById(R.id.btnhome)
 
