@@ -101,6 +101,9 @@ class horizontal : AppCompatActivity() {
         for ((index, value) in impactValue.withIndex()) {
             Log.d("ImpactValue", "Índice $index: $value")
         }
+        Log.d("CostFactorN", costFactorN.contentToString())
+        Log.d("KPIFactorN", KPIFactorN.contentToString())
+        Log.d("proximityFactorN", proximityFactorN.contentToString())
     }
 }
 

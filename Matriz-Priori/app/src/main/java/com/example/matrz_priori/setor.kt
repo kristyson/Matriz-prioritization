@@ -1,29 +1,26 @@
 package com.example.matrz_priori
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.RadioGroup
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class setor : AppCompatActivity() {
 
     companion object {
-        // Variável global para armazenar o vetor costFactorN
+        // Variável global para armazenar o vetor proximityFactorN
         var proximityFactorN: DoubleArray = DoubleArray(16)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_setor)
 
         val btnProximo: Button = findViewById(R.id.btnProximo)
 
-        btnProximo.setOnClickListener{
+        btnProximo.setOnClickListener {
             val intent = Intent(this, horizontal::class.java)
             startActivity(intent)
         }
@@ -49,13 +46,13 @@ class setor : AppCompatActivity() {
         // Variável para armazenar a resposta do setor
         var answer = -1
 
-        // Obtém o vetor de respostas da tela forms
-        val respostasForms = intent.getIntArrayExtra("respostas") ?: IntArray(16) { -1 }
+        // Obter vetor de respostas da Activity forms
+        val respostaForms = forms.respostaForms
 
         // Vetor para armazenar o "Proximity Factor"
         val proximityFactor = DoubleArray(16)
 
-// Configuração dos RadioButtons
+        // Configuração dos RadioButtons
         val radioGroup = findViewById<RadioGroup>(R.id.answer1Group)
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             answer = when (checkedId) {
@@ -79,27 +76,21 @@ class setor : AppCompatActivity() {
             // Verifica se a resposta do setor é válida
             if (answer != -1) {
                 // Calcula o "Proximity Factor" para cada linha da matriz
-                for (i in matriz.indices) {
-                    proximityFactor[i] = (matriz[i][answer] - respostasForms[i]).toDouble()
+                for (j in 0 until 16) {
+                    proximityFactor[j] = (matriz[answer][j] - respostaForms[j]).toDouble()
                 }
+
+                // Variável para armazenar a soma dos elementos do vetor proximityFactor
+                val totS = proximityFactor.sum()
+
+                // Calcular os resultados da divisão e armazenar no vetor proximityFactorN
+                for (i in proximityFactor.indices) {
+                    proximityFactorN[i] = proximityFactor[i] / totS
+                }
+
             }
-
-            // Variável para armazenar a soma dos elementos do vetor proximityFactor
-            var TotS = 0.0
-
-            // Calcular a soma dos elementos do vetor proximityFactor
-            for (element in proximityFactor) {
-                TotS += element
-            }
-
-            // Calcular os resultados da divisão e armazenar no vetor
-            for (i in proximityFactor.indices) {
-                proximityFactorN[i] = proximityFactor[i] / TotS
-            }
-
+            Log.d("proximityFactor", proximityFactor.contentToString())
+            Log.d("proximityFactorN", proximityFactorN.contentToString())
         }
-
     }
-
 }
-

@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.RadioGroup
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class forms : AppCompatActivity() {
 
-    private val respostas = Array(16) { -1 }
+    companion object {
+        // Variável global para armazenar o vetor respostaForms
+        var respostaForms: IntArray = IntArray(16) { -1 }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +20,9 @@ class forms : AppCompatActivity() {
 
         val btnProximo: Button = findViewById(R.id.btnProximo)
 
-        btnProximo.setOnClickListener{
+        btnProximo.setOnClickListener {
+
+            // Iniciar a próxima activity e enviar o vetor respostaForms como extra na Intent
             val intent = Intent(this, custo::class.java)
             startActivity(intent)
         }
@@ -31,16 +34,22 @@ class forms : AppCompatActivity() {
         for (i in 1..16) {
             val radioGroup = findViewById<RadioGroup>(resources.getIdentifier("answer${i}Group", "id", packageName))
             radioGroup.setOnCheckedChangeListener { _, checkedId ->
-                when (checkedId) {
-                    resources.getIdentifier("answer${i}_0", "id", packageName) -> respostas[i - 1] = 0
-                    resources.getIdentifier("answer${i}_1", "id", packageName) -> respostas[i - 1] = 1
-                    resources.getIdentifier("answer${i}_2", "id", packageName) -> respostas[i - 1] = 2
-                    resources.getIdentifier("answer${i}_3", "id", packageName) -> respostas[i - 1] = 3
-                    resources.getIdentifier("answer${i}_4", "id", packageName) -> respostas[i - 1] = 4
-                    resources.getIdentifier("answer${i}_5", "id", packageName) -> respostas[i - 1] = 5
+                // Determina o valor selecionado com base no ID do RadioButton
+                val respostaSelecionada = when (checkedId) {
+                    resources.getIdentifier("answer${i}_0", "id", packageName) -> 0
+                    resources.getIdentifier("answer${i}_1", "id", packageName) -> 1
+                    resources.getIdentifier("answer${i}_2", "id", packageName) -> 2
+                    resources.getIdentifier("answer${i}_3", "id", packageName) -> 3
+                    resources.getIdentifier("answer${i}_4", "id", packageName) -> 4
+                    resources.getIdentifier("answer${i}_5", "id", packageName) -> 5
+                    else -> -1
+                }
+
+                // Armazena a resposta selecionada no vetor respostaForms
+                if (respostaSelecionada != -1) {
+                    respostaForms[i - 1] = respostaSelecionada
                 }
             }
         }
     }
-
 }
