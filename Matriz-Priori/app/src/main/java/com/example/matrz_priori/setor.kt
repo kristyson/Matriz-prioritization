@@ -18,12 +18,9 @@ class setor : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setor)
 
-        val btnProximo: Button = findViewById(R.id.btnProximo)
+        // Obtenha o RadioGroup
+        val radioGroup = findViewById<RadioGroup>(R.id.answer1Group)
 
-        btnProximo.setOnClickListener {
-            val intent = Intent(this, horizontal::class.java)
-            startActivity(intent)
-        }
 
         // Matriz 14 por 16 com os valores fornecidos
         val matriz: Array<Array<Int>> = arrayOf(
@@ -49,11 +46,7 @@ class setor : AppCompatActivity() {
         // Obter vetor de respostas da Activity forms
         val respostaForms = forms.respostaForms
 
-        // Vetor para armazenar o "Proximity Factor"
-        val proximityFactor = DoubleArray(16)
-
         // Configuração dos RadioButtons
-        val radioGroup = findViewById<RadioGroup>(R.id.answer1Group)
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             answer = when (checkedId) {
                 R.id.setor1 -> 0
@@ -76,6 +69,7 @@ class setor : AppCompatActivity() {
             // Verifica se a resposta do setor é válida
             if (answer != -1) {
                 // Calcula o "Proximity Factor" para cada linha da matriz
+                val proximityFactor = DoubleArray(16)
                 for (j in 0 until 16) {
                     proximityFactor[j] = (matriz[answer][j] - respostaForms[j]).toDouble()
                 }
@@ -89,8 +83,20 @@ class setor : AppCompatActivity() {
                 }
 
             }
-            Log.d("proximityFactor", proximityFactor.contentToString())
-            Log.d("proximityFactorN", proximityFactorN.contentToString())
+        }
+
+        val btnProximo: Button = findViewById(R.id.btnProximo)
+        btnProximo.isEnabled = false // Inicialmente desativado
+
+        // Configuração do listener para o RadioGroup
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            // Verifique se alguma opção foi selecionada
+            btnProximo.isEnabled = checkedId != -1
+        }
+
+        btnProximo.setOnClickListener {
+            val intent = Intent(this, horizontal::class.java)
+            startActivity(intent)
         }
     }
 }

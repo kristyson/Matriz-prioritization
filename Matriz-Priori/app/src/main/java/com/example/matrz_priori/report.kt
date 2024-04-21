@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -17,9 +19,33 @@ class report : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_report)
 
-        val impactValue = horizontal.impactValue
         val tableLayout: TableLayout = findViewById(R.id.tableLayout)
+        val impactValue = horizontal.impactValue
         val respostaForms = forms.respostaForms
+
+        val editTextNomeFantasia = inicial.editTextNomeFantasia
+        val editTextCnpj = inicial.editTextCnpj
+        val radioGroupPorteEmpresa = inicial.radioGroupPorteEmpresa
+
+
+        val nomeFantasiaTextView = findViewById<TextView>(R.id.NomeFantasia)
+        val nomeFantasia = editTextNomeFantasia.text.toString()
+        nomeFantasiaTextView.text = "Nome: $nomeFantasia"
+
+        val cnpjTextView = findViewById<TextView>(R.id.cnpj)
+        val cnpj = editTextCnpj.text.toString()
+        cnpjTextView.text = "CNPJ: $cnpj"
+
+        val porteEmpresaTextView = findViewById<TextView>(R.id.porte)
+        val porteEmpresa = when (radioGroupPorteEmpresa.checkedRadioButtonId) {
+            R.id.radioButtonMEI -> "MEI"
+            R.id.radioButtonMicroempresa -> "Microempresa"
+            R.id.radioButtonPequenaEmpresa -> "Pequena empresa"
+            R.id.radioButtonMediaEmpresa -> "Média empresa"
+            R.id.radioButtonGrandeEmpresa -> "Grande empresa"
+            else -> ""
+        }
+        porteEmpresaTextView.text = "Porte de empresa: $porteEmpresa"
 
         // Array de strings para os textos da segunda coluna
         val texts = arrayOf(
@@ -57,11 +83,6 @@ class report : AppCompatActivity() {
                     "Governance"
         )
 
-        val blueColors = arrayOf(
-            Color.parseColor("#215483"),
-            Color.parseColor("#246FB3"),
-            Color.parseColor("#2CA2BC")
-        )
 
         // Loop para criar as 16 linhas
         for (i in 0 until 16) {
@@ -69,13 +90,6 @@ class report : AppCompatActivity() {
             for (j in 1..4) {
                 val textView = TextView(this)
                 if (j == 1) {
-                    textView.setBackgroundColor(
-                        when {
-                            i < 3 -> blueColors[0] // Primeiras 3 linhas
-                            i < 12 -> blueColors[1] // Próximas 9 linhas
-                            else -> blueColors[2] // Últimas 4 linhas
-                        }
-                    )
                     textView.text = when {
                         i < 3 -> "Process"
                         i < 12 -> "Technology"
@@ -95,10 +109,17 @@ class report : AppCompatActivity() {
                     TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT
                 )
-                layoutParams.setMargins(4, 4, 4, 4)
+                layoutParams.setMargins(2, 2, 2, 2)
                 textView.layoutParams = layoutParams
                 textView.gravity = Gravity.CENTER
-                textView.textSize = 12f
+                textView.textSize = 16f
+                textView.setPadding(10, 10, 10, 10) // Adicionar padding interno
+
+                // Definir a cor do texto para preto
+                textView.setTextColor(Color.BLACK)
+
+                // Adicionar bordas às células
+                textView.setBackgroundResource(R.drawable.table_row_border)
 
                 tableRow.addView(textView)
             }
@@ -108,7 +129,7 @@ class report : AppCompatActivity() {
         val btnProximo: Button = findViewById(R.id.btnhome)
 
         btnProximo.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, inicial::class.java)
             startActivity(intent)
         }
     }

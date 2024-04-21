@@ -11,6 +11,21 @@
 
     <!-- ScrollView para a área rolável -->
 
+
+    <TextView
+        android:id="@+id/textViewSumPercentage"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Soma das Porcentagens: 0%"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -18,7 +33,7 @@
         android:gravity="center"
         android:padding="16dp"
         android:text="Perfil de Custo"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,24 +42,25 @@
 
     <Button
         android:id="@+id/btnProximo"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:text="Próximo"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="600dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#172E4D"
+        android:text="Proximo"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="700dp"
+        android:layout_height="800dp"
+        android:layout_marginTop="64dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSumPercentage">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,9 +71,10 @@
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage1"
@@ -80,9 +97,10 @@
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage2"
@@ -105,9 +123,10 @@
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage3"
@@ -126,14 +145,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage4 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage4"
@@ -156,9 +175,10 @@
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage5"
@@ -177,14 +197,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage6 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage6"
@@ -203,14 +223,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage7 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage7"
@@ -229,14 +249,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage8 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage8"
@@ -255,14 +275,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage9 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage9"
@@ -281,14 +301,14 @@
             </LinearLayout>
 
 
-
             <!-- Pocentage10 -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <EditText
                     android:id="@+id/porcentage10"
@@ -305,7 +325,6 @@
                     android:text="%"
                     android:textSize="16sp" />
             </LinearLayout>
-
 
 
             <!-- Repita o layout acima para as outras 9 entradas de números -->

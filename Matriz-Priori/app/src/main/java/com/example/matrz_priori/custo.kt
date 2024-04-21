@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -58,6 +59,10 @@ class custo : AppCompatActivity() {
 
         // Inicializar e atualizar costFactorN
         updateCostFactorN()
+
+        // Atualizar TextView e estado do botão "Próximo"
+        updateSumPercentageTextView()
+        updateNextButtonState()
     }
 
     // Método para configurar os listeners para os EditTexts
@@ -69,6 +74,8 @@ class custo : AppCompatActivity() {
                     s?.toString()?.let {
                         percentages[i] = if (it.isNotEmpty()) it.toDouble() / 100 else 0.0
                         updateCostFactorN()
+                        updateSumPercentageTextView()
+                        updateNextButtonState()
                     }
                 }
 
@@ -99,5 +106,17 @@ class custo : AppCompatActivity() {
             costFactorN[i] = costFactor[i] / totC
         }
 
+    }
+
+    private fun updateSumPercentageTextView() {
+        val sumPercentage = percentages.sum() * 100
+        val textViewSumPercentage = findViewById<TextView>(R.id.textViewSumPercentage)
+        textViewSumPercentage.text = "Soma das Porcentagens: ${sumPercentage.toInt()}%"
+    }
+
+    private fun updateNextButtonState() {
+        val btnProximo = findViewById<Button>(R.id.btnProximo)
+        val sumPercentage = percentages.sum()
+        btnProximo.isEnabled = sumPercentage == 1.0 // Habilita o botão se a soma for igual a 100%
     }
 }

@@ -26,6 +26,7 @@ class horizontal : AppCompatActivity() {
         val KPIFactorN = kpi.KPIFactorN
         val proximityFactorN = setor.proximityFactorN
         val btnProximo: Button = findViewById(R.id.btnProximo)
+        btnProximo.isEnabled = false // Inicialmente desativado
 
 
         btnProximo.setOnClickListener{
@@ -58,6 +59,9 @@ class horizontal : AppCompatActivity() {
                     wProx = 0.2
                 }
             }
+
+            // Ativar o botão "Próximo" se alguma opção estiver selecionada
+            btnProximo.isEnabled = checkedId != -1
 
             calculateImpactValue(costFactorN, KPIFactorN, proximityFactorN, wCost, wKPI, wProx)
         }
@@ -96,14 +100,6 @@ class horizontal : AppCompatActivity() {
         for (i in impactValue.indices) {
             impactValue[i] = weightedCostFactorN[i] + weightedKPIFactorN[i] + weightedProximityFactorN[i]
         }
-
-        // Imprimir o vetor impactValue no Logcat
-        for ((index, value) in impactValue.withIndex()) {
-            Log.d("ImpactValue", "Índice $index: $value")
-        }
-        Log.d("CostFactorN", costFactorN.contentToString())
-        Log.d("KPIFactorN", KPIFactorN.contentToString())
-        Log.d("proximityFactorN", proximityFactorN.contentToString())
     }
 }
 

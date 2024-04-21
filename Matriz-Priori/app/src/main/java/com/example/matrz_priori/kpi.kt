@@ -20,14 +20,10 @@ class kpi : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_kpi)
 
+        // Variáveis para armazenar as respostas dos CheckBoxes
+
+
         val btnProximo: Button = findViewById(R.id.btnProximo)
-
-        btnProximo.setOnClickListener {
-            val intent = Intent(this, setor::class.java)
-            startActivity(intent)
-        }
-
-        // Lista de IDs dos CheckBoxes
         val checkBoxIds = listOf(
             R.id.opcao1, R.id.opcao2, R.id.opcao3, R.id.opcao4,
             R.id.opcao5, R.id.opcao6, R.id.opcao7, R.id.opcao8,
@@ -35,18 +31,31 @@ class kpi : AppCompatActivity() {
             R.id.opcao13, R.id.opcao14
         )
 
-        // Variáveis para armazenar as respostas dos CheckBoxes
         val respostas = IntArray(checkBoxIds.size)
+
+        // Desativar o botão "Próximo" inicialmente
+        btnProximo.isEnabled = false
 
         // Configuração dos CheckBoxes
         checkBoxIds.forEachIndexed { index, checkBoxId ->
             val checkBox = findViewById<CheckBox>(checkBoxId)
             checkBox.setOnCheckedChangeListener { _, isChecked ->
+                // Atualizar contagem de seleções
+                val numSelecionados = checkBoxIds.count { findViewById<CheckBox>(it).isChecked }
+                // Habilitar botão "Próximo" apenas se 5 CheckBoxes estiverem selecionados
+                btnProximo.isEnabled = numSelecionados == 5
                 respostas[index] = if (isChecked) 1 else 0
                 // Atualizar KPIFactorN sempre que houver uma mudança
                 updateKPIFactorN(respostas)
             }
         }
+
+        btnProximo.setOnClickListener {
+            val intent = Intent(this, setor::class.java)
+            startActivity(intent)
+        }
+
+
 
         // Calcular KPIFactorN inicialmente
         updateKPIFactorN(respostas)
