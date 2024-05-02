@@ -1,10 +1,10 @@
 package com.example.matrz_priori
-
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
@@ -17,6 +17,7 @@ class inicial : AppCompatActivity() {
         lateinit var editTextNomeFantasia: EditText
         lateinit var editTextCnpj: EditText
         lateinit var radioGroupPorteEmpresa: RadioGroup
+        lateinit var buttonEnviar: Button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,49 +28,49 @@ class inicial : AppCompatActivity() {
         editTextNomeFantasia = findViewById(R.id.editTextNomeFantasia)
         editTextCnpj = findViewById(R.id.editTextCnpj)
         radioGroupPorteEmpresa = findViewById(R.id.radioGroupPorteEmpresa)
+        buttonEnviar = findViewById(R.id.buttonEnviar)
 
-        // Configura o botão para salvar os dados da empresa
-        val buttonSalvar = findViewById<Button>(R.id.buttonEnviar)
-        buttonSalvar.setOnClickListener {
-            salvarDadosEmpresa()
+        // Configura o botão para ficar indisponível inicialmente
+        buttonEnviar.isEnabled = false
+        buttonEnviar.setBackgroundTintList(getColorStateList(R.color.gray_disabled_color))
+
+        // Verifica se todos os campos estão preenchidos para habilitar o botão
+        editTextNomeFantasia.addTextChangedListener(textWatcher)
+        editTextCnpj.addTextChangedListener(textWatcher)
+        radioGroupPorteEmpresa.setOnCheckedChangeListener { _, _ -> verificarCamposPreenchidos() }
+
+        // Configura o clique do botão
+        buttonEnviar.setOnClickListener {
+            // Exibe um Toast por 2 segundos
+            Toast.makeText(this, "Dados enviados com sucesso!", Toast.LENGTH_SHORT).show()
             Handler().postDelayed({
-            val intent = Intent(this, forms::class.java)
-            startActivity(intent)
+                val intent = Intent(this, forms::class.java)
+                startActivity(intent)
             }, 2000)
         }
-
-        // Carrega os dados da empresa caso já tenham sido salvos
-        carregarDadosEmpresa()
     }
 
-    // Função para salvar os dados da empresa utilizando SharedPreferences
-    private fun salvarDadosEmpresa() {
-        val nomeFantasia = editTextNomeFantasia.text.toString()
-        val cnpj = editTextCnpj.text.toString()
+    // Listener para verificar se todos os campos estão preenchidos
+    private val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            verificarCamposPreenchidos()
+        }
+
+        override fun afterTextChanged(s: Editable?) {}
+    }
+
+    // Função para verificar se todos os campos estão preenchidos e habilitar/desabilitar o botão
+    private fun verificarCamposPreenchidos() {
+        val nomeFantasia = editTextNomeFantasia.text.toString().trim()
+        val cnpj = editTextCnpj.text.toString().trim()
         val porteEmpresa = obterPorteEmpresa()
 
-        // Salva os dados da empresa utilizando SharedPreferences
-        val sharedPreferences = getSharedPreferences("dados_empresa", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("nomeFantasia", nomeFantasia)
-        editor.putString("cnpj", cnpj)
-        editor.putString("porteEmpresa", porteEmpresa)
-        editor.apply()
+        val todosCamposPreenchidos = nomeFantasia.isNotEmpty() && cnpj.isNotEmpty() && porteEmpresa.isNotEmpty()
 
-        Toast.makeText(this, "Dados da empresa salvos com sucesso!", Toast.LENGTH_SHORT).show()
-    }
-
-    // Função para carregar os dados da empresa salvos anteriormente
-    private fun carregarDadosEmpresa() {
-        val sharedPreferences = getSharedPreferences("dados_empresa", Context.MODE_PRIVATE)
-        val nomeFantasiaSalvo = sharedPreferences.getString("nomeFantasia", "")
-        val cnpjSalvo = sharedPreferences.getString("cnpj", "")
-        val porteEmpresaSalvo = sharedPreferences.getString("porteEmpresa", "")
-
-        // Atualiza os campos da interface com os dados carregados
-        editTextNomeFantasia.setText(nomeFantasiaSalvo)
-        editTextCnpj.setText(cnpjSalvo)
-        // Aqui você pode exibir ou utilizar o porteEmpresaSalvo conforme necessário
+        buttonEnviar.isEnabled = todosCamposPreenchidos
+        buttonEnviar.setBackgroundTintList(getColorStateList(if (todosCamposPreenchidos) R.color.blue_primary_color else R.color.gray_disabled_color))
     }
 
     // Função para obter o porte da empresa com base no RadioButton selecionado
@@ -82,5 +83,18 @@ class inicial : AppCompatActivity() {
             R.id.radioButtonGrandeEmpresa -> "Grande empresa - Acima de R$ 300.000.000,00"
             else -> ""
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        limparDadosEmpresa()
+    }
+
+    // Função para limpar os dados da empresa nos SharedPreferences
+    private fun limparDadosEmpresa() {
+        val sharedPreferences = getSharedPreferences("dados_empresa", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear() // Limpa todos os dados
+        editor.apply()
     }
 }

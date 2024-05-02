@@ -87,7 +87,7 @@ class report : AppCompatActivity() {
         // Loop para criar as 16 linhas
         for (i in 0 until 16) {
             val tableRow = TableRow(this)
-            for (j in 1..4) {
+            for (j in 1..4) {7
                 val textView = TextView(this)
                 if (j == 1) {
                     textView.text = when {

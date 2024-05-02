@@ -2,13 +2,10 @@ package com.example.matrz_priori
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.RadioGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class horizontal : AppCompatActivity() {
 
@@ -26,48 +23,44 @@ class horizontal : AppCompatActivity() {
         val KPIFactorN = kpi.KPIFactorN
         val proximityFactorN = setor.proximityFactorN
         val btnProximo: Button = findViewById(R.id.btnProximo)
-        btnProximo.isEnabled = false // Inicialmente desativado
-
-
-        btnProximo.setOnClickListener{
-            val intent = Intent(this, report::class.java)
-            startActivity(intent)
-        }
-
-        // Variáveis para armazenar os pesos
-        var wCost = 0.0
-        var wKPI = 0.0
-        var wProx = 0.0
+        disableNextButton(btnProximo) // Inicialmente desativado
 
         // Configuração dos RadioButtons
         val radioGroup = findViewById<RadioGroup>(R.id.answer1Group)
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.op1 -> {
-                    wCost = 0.3
-                    wKPI = 0.4
-                    wProx = 0.3
+                    enableNextButton(btnProximo)
                 }
                 R.id.op2 -> {
-                    wCost = 0.45
-                    wKPI = 0.3
-                    wProx = 0.25
+                    enableNextButton(btnProximo)
                 }
                 R.id.op3 -> {
-                    wCost = 0.6
-                    wKPI = 0.2
-                    wProx = 0.2
+                    enableNextButton(btnProximo)
+                }
+                else -> {
+                    disableNextButton(btnProximo)
                 }
             }
+        }
 
-            // Ativar o botão "Próximo" se alguma opção estiver selecionada
-            btnProximo.isEnabled = checkedId != -1
-
-            calculateImpactValue(costFactorN, KPIFactorN, proximityFactorN, wCost, wKPI, wProx)
+        btnProximo.setOnClickListener{
+            val intent = Intent(this, report::class.java)
+            startActivity(intent)
         }
 
         // Calcular e exibir o vetor impactValue inicialmente
-        calculateImpactValue(costFactorN, KPIFactorN, proximityFactorN, wCost, wKPI, wProx)
+        calculateImpactValue(costFactorN, KPIFactorN, proximityFactorN, 0.3, 0.4, 0.3)
+    }
+
+    private fun enableNextButton(button: Button) {
+        button.isEnabled = true
+        button.setBackgroundColor(getColor(R.color.blue_primary_color))
+    }
+
+    private fun disableNextButton(button: Button) {
+        button.isEnabled = false
+        button.setBackgroundColor(getColor(R.color.gray_disabled_color))
     }
 
     private fun calculateImpactValue(
@@ -102,4 +95,3 @@ class horizontal : AppCompatActivity() {
         }
     }
 }
-

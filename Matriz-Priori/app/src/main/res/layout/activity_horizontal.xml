@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/titulo"
-        android:text="Plano"
+        android:text="Horizonte de Planejamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,6 +20,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/subtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Escolha uma das opções"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:layout_constraintVertical_bias="0.135" />
 
     <Button
         android:id="@+id/btnProximo"
@@ -38,6 +53,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="700dp"
         android:layout_height="900dp"
         android:layout_weight="1"
@@ -66,24 +82,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="22sp"
-                    android:text="Strategic (3 - 5 years)" />
+                    android:text="Strategic (3 - 5 years)"
+                    android:textSize="22sp" />
 
                 <RadioButton
                     android:id="@+id/op2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="22sp"
-                    android:text="Tactical (1 — 2 years)" />
+                    android:text="Tactical (1 — 2 years)"
+                    android:textSize="22sp" />
 
                 <RadioButton
                     android:id="@+id/op3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="22sp"
-                    android:text="Operational (3 — 6 months)" />
+                    android:text="Operational (3 — 6 months)"
+                    android:textSize="22sp" />
 
 
             </RadioGroup>
