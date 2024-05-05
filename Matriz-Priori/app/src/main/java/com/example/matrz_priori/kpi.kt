@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -35,6 +36,7 @@ class kpi : AppCompatActivity() {
 
         // Desativar o botão "Próximo" inicialmente
         btnProximo.isEnabled = false
+        btnProximo.setBackgroundColor(getColor(R.color.gray_disabled_color))
 
         // Configuração dos CheckBoxes
         checkBoxIds.forEachIndexed { index, checkBoxId ->
@@ -44,6 +46,11 @@ class kpi : AppCompatActivity() {
                 val numSelecionados = checkBoxIds.count { findViewById<CheckBox>(it).isChecked }
                 // Habilitar botão "Próximo" apenas se 5 CheckBoxes estiverem selecionados
                 btnProximo.isEnabled = numSelecionados == 5
+                btnProximo.setBackgroundColor(if (btnProximo.isEnabled) getColor(R.color.blue_primary_color) else getColor(R.color.gray_disabled_color))
+                if (numSelecionados > 5) {
+                    // Exibe um Toast para avisar o usuário
+                    Toast.makeText(this, "Escolha 5 opções !", Toast.LENGTH_SHORT).show()
+                }
                 respostas[index] = if (isChecked) 1 else 0
                 // Atualizar KPIFactorN sempre que houver uma mudança
                 updateKPIFactorN(respostas)

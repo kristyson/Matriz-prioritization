@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -47,6 +48,7 @@ class custo : AppCompatActivity() {
         setContentView(R.layout.activity_custo)
 
         val btnProximo: Button = findViewById(R.id.btnProximo)
+        btnProximo.setBackgroundColor(getColor(R.color.gray_disabled_color))
 
         // Definir OnClickListener para o botão
         btnProximo.setOnClickListener {
@@ -118,5 +120,10 @@ class custo : AppCompatActivity() {
         val btnProximo = findViewById<Button>(R.id.btnProximo)
         val sumPercentage = percentages.sum()
         btnProximo.isEnabled = sumPercentage == 1.0 // Habilita o botão se a soma for igual a 100%
+        btnProximo.setBackgroundColor(if (btnProximo.isEnabled) getColor(R.color.blue_primary_color) else getColor(R.color.gray_disabled_color))
+        if (sumPercentage > 1.0) {
+            // Exibe um Toast para avisar o usuário
+            Toast.makeText(this, "A soma das porcentagens deve ser igual a 100%", Toast.LENGTH_SHORT).show()
+        }
     }
 }

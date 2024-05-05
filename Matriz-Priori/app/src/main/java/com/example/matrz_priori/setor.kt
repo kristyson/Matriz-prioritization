@@ -87,11 +87,13 @@ class setor : AppCompatActivity() {
 
         val btnProximo: Button = findViewById(R.id.btnProximo)
         btnProximo.isEnabled = false // Inicialmente desativado
+        btnProximo.setBackgroundColor(getColor(R.color.gray_disabled_color))
 
         // Configuração do listener para o RadioGroup
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             // Verifique se alguma opção foi selecionada
             btnProximo.isEnabled = checkedId != -1
+            btnProximo.setBackgroundColor(if (btnProximo.isEnabled) getColor(R.color.blue_primary_color) else getColor(R.color.gray_disabled_color))
         }
 
         btnProximo.setOnClickListener {
